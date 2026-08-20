@@ -1,24 +1,5 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Building, MapPin, CheckCircle2, ArrowRight, X } from "lucide-react";
-import { bookShelterSpotInFirestore, ShelterBookingRecord } from "@/services/authService";
-import { useAuth } from "@/hooks/useAuth";
-
-interface ShelterItem {
-  id: string;
-  name: string;
-  address: string;
-  distance: string;
-  capacity: number;
-  occupied: number;
-  phone: string;
-  facilities: string[];
-}
-
-"use client";
-
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Building, MapPin, CheckCircle2, ArrowRight, X, Printer, Download } from "lucide-react";

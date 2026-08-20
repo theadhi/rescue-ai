@@ -130,7 +130,7 @@ export function subscribeAuditLogsStream(
         const list: AuditLogEntry[] = [];
         snapshot.forEach((docSnap) => {
           if (docSnap.exists()) {
-            list.push(docSnap.data() as AuditLogEntry);
+            list.push({ ...docSnap.data(), id: docSnap.data().id || docSnap.id } as AuditLogEntry);
           }
         });
         list.sort((a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
@@ -594,7 +594,7 @@ export function subscribeUsersListStream(
         const list: UserProfile[] = [];
         snapshot.forEach((docSnap) => {
           if (docSnap.exists()) {
-            list.push(docSnap.data() as UserProfile);
+            list.push({ ...docSnap.data(), uid: docSnap.data().uid || docSnap.id } as UserProfile);
           }
         });
         callback(list);
